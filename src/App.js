@@ -11,12 +11,14 @@ const App = () => {
   const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
   useEffect(() => {
+    console.log('useeffect1');
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => setMonsters(users));
   }, []);
   
   useEffect(() => {
+    console.log('useeffect2');
     const newFilteredMonster = monsters.filter(monster => {
       let name = monster.name.toLowerCase();
       return name.includes(keyword);
